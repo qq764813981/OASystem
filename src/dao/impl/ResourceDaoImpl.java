@@ -2,6 +2,7 @@ package dao.impl;
 
 import dao.ResourceDao;
 import entity.Resource;
+import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
 /**

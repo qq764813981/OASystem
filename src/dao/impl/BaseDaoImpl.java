@@ -3,6 +3,8 @@ package dao.impl;
 import dao.BaseDao;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
 import java.io.Serializable;
@@ -13,6 +15,7 @@ import java.util.List;
 /**
  * Created by 嘉诚 on 2016/8/29.
  */
+
 public class BaseDaoImpl<T> implements BaseDao<T>{
     private String className;
     private Class<T> clazz;
@@ -33,7 +36,9 @@ public class BaseDaoImpl<T> implements BaseDao<T>{
 
     @Override
     public void save(T entity) {
+        System.out.println("saving");
         sessionFactory.getCurrentSession().save(entity);
+        System.out.println("saved");
     }
 
     @Override

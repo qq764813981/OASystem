@@ -1,7 +1,9 @@
 package entity;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
 
 /**
  * Created by 嘉诚 on 2016/8/29.
@@ -10,8 +12,9 @@ import java.sql.Date;
 @Table(name = "t_article")
 public class Article {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @GenericGenerator(name="article_uuid", strategy = "uuid")
+    @GeneratedValue(generator = "article_uuid")
+    private String id;
 
     @Column(nullable = false)
     private String content;
@@ -22,4 +25,36 @@ public class Article {
     @ManyToOne(targetEntity = entity.User.class)
     @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
     private User user;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public Date getTime() {
+        return time;
+    }
+
+    public void setTime(Date time) {
+        this.time = time;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }
