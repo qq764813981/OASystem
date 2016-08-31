@@ -35,9 +35,9 @@ public class Project {
     @Column(nullable = false)
     private int rate = 0;   //0 -- 100， 100则已完成
 
-    private String requestDocument = "";
+    private String requestDocument = "";  //绝对路径
 
-    private String systemDocument = "";
+    private String systemDocument = "";   //绝对路径
 
     @OneToMany(targetEntity = entity.Assignment.class, mappedBy = "project")
     private List<Assignment> assignmentList = new ArrayList<>();

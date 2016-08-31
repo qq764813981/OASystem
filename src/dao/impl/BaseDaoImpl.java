@@ -36,9 +36,7 @@ public class BaseDaoImpl<T> implements BaseDao<T>{
 
     @Override
     public void save(T entity) {
-        System.out.println("saving");
         sessionFactory.getCurrentSession().save(entity);
-        System.out.println("saved");
     }
 
     @Override

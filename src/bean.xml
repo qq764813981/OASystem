@@ -53,4 +53,12 @@
 
     <!-- 根据Annotation来生成事务代理 -->
     <tx:annotation-driven transaction-manager="transactionManager"/>
+
+    <!-- 时间转换器 -->
+    <bean id="simpleDateFormat" class="java.text.SimpleDateFormat">
+        <constructor-arg value="yyyy-MM-dd"/>
+    </bean>
+
+    <!-- 工具类 -->
+    <bean id="fileTransfer" class="util.FileTransfer"/>
 </beans>

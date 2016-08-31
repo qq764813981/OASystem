@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Struts2">
+    <CLASSES>
+      <root url="file://E:/java库/OAssh/Struts2" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://E:/java库/OAssh/Struts2" recursive="false" />
+  </library>
+</component>

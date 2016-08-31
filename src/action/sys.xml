@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <package name="OASystem" namespace="/sys" extends="struts-default">
+
+
+        <!-- 进入后台管理系统登录页面 -->
+        <action name="sys" class="sysAction">
+            <result name="login">/WEB-INF/content/oa_sys/login.jsp</result>
+            <result name="success" type="redirectAction">prjManager.action</result>
+        </action>
+
+        <!-- 登录 -->
+        <action name="login" class="loginAction">
+            <result name="success" type="redirectAction">prjManager.action</result>
+            <result name="error">/WEB-INF/content/oa_sys/login.jsp</result>
+        </action>
+
+        <!-- 登出 -->
+        <action name="logout" class="logoutAction">
+            <result name="login">/WEB-INF/content/oa_sys/login.jsp</result>
+        </action>
+
+        <!-- 新增项目 -->
+        <action name="addPrj" class="addPrjAction">
+            <!-- 直接注入action的属性值，设置储存路径 -->
+            <result name="success" type="redirectAction">prjManager.action</result>
+            <result name="error">/WEB-INF/content/error.jsp</result>
+        </action>
+
+        <!-- 删除某一个project -->
+        <action name="deleteProject" class="deleteProjectAction">
+            <result name="success" type="redirectAction">prjManager.action</result>
+            <result name="error">/WEB-INF/content/error.jsp</result>
+        </action>
+
+        <!-- 删除选中的project -->
+        <action name="deleteCheckedProject" class="deleteCheckedProjectAction">
+            <result name="success" type="redirectAction">prjManager.action</result>
+        </action>
+
+        <!-- 跳转到prjManager.jsp -->
+        <action name="prjManager" class="prjManagerAction">
+            <result name="success">/WEB-INF/content/oa_sys/prjManager.jsp</result>
+        </action>
+
+        <!-- *.action自动跳转到*.jsp -->
+        <action name="*">
+            <result>/WEB-INF/content/oa_sys/{1}.jsp</result>
+        </action>
+    </package>
+
+</struts>
